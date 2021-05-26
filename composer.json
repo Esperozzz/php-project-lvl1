@@ -1,0 +1,14 @@
+{
+    "name": "hexlet/code",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "esperozzz",
+            "email": "esperoz9@gmail.com"
+        }
+    ],
+    "description": "Tutorial project",
+    "bin" : ["bin/brain-games"],
+    "require": {}
+}
