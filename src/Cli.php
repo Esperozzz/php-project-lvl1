@@ -2,8 +2,12 @@
 
 namespace Brain\Games\Cli;
 
-class Cli
+use function cli\line;
+use function cli\prompt;
+  
+function greetingByName(): void
 {
-
+    line('Welcome to the Brain Game!');
+    $playerName = prompt('May I have your name?');
+    line("Hello, %s!", $playerName);
 }
-

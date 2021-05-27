@@ -1,6 +1,14 @@
 #!/usr/bin/env php
 <?php
 
-echo 'Welcome to the Brain Games!';
-echo "\n";
+use function Brain\Games\Cli\greetingByName;
 
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
+} else {
+    echo "autoload file is not included";
+    exit();
+}
+
+greetingByName();
