@@ -1,0 +1,12 @@
+name: PHP CI
+on:
+  - push
+  - pull_request
+jobs:
+  Run-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run linter
+        # Run Linter
+        run: make altlint
