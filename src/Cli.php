@@ -4,7 +4,10 @@ namespace Brain\Games\Cli;
 
 use function cli\line;
 use function cli\prompt;
-  
+
+/**
+ * @return void
+ */
 function greetingByName(): void
 {
     line('Welcome to the Brain Game!');
