@@ -6,11 +6,12 @@ use function cli\line;
 use function cli\prompt;
 
 /**
- * @return void
+ * Приветствуем пользователя по имени
  */
-function greetingByName(): void
+function greetingByName(): string
 {
     line('Welcome to the Brain Game!');
     $playerName = prompt('May I have your name?');
     line("Hello, %s!", $playerName);
+    return $playerName;
 }

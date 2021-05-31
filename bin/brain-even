@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+error_reporting(-1);
+
+use function Brain\Games\Even\lose;
+use function Brain\Games\Even\ifWin;
+use function Brain\Games\Even\askQuestion;
+use function Brain\Games\Even\startEvenGame;
+use function Brain\Games\Even\generateNumber;
+use function Brain\Games\Even\answerIsCorrect;
+use function Brain\Games\Even\reportGameRules;
+use function Brain\Games\Cli\greetingByName;
+
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
+} else {
+    echo "autoload file is not included";
+    exit();
+}
+
+$playerName = greetingByName();
+startEvenGame($playerName);
