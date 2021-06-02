@@ -3,7 +3,9 @@
 namespace Brain\Games\Even;
 
 use function cli\line;
-use function cli\prompt;
+use function Brain\Message\win;
+use function Brain\Message\getPlayerAnswer;
+use function Brain\Message\askAQuestion;
 
 define('RANDOM_MIN_NUM', 1);
 define('RANDOM_MAX_NUM', 100);
@@ -14,39 +16,25 @@ define('ANSWERS_TO_WIN', 3);
  */
 function startEvenGame(string $playerName): void
 {
-    reportGameRules();
-    
-    for($correctAnswer = 0; $correctAnswer < ANSWERS_TO_WIN; ) {
-        $answerIsCorrect = askQuestion(generateNumber());
-        if (!$answerIsCorrect) {
+    gameRules();
+
+    for ($correctAnswer = 0; $correctAnswer < ANSWERS_TO_WIN;) {
+        //Задать игроку вопрос
+        $number = generateNumber();
+        askAQuestion($number);
+
+        //Получить от игрока ответ
+        $playerAnswer = getPlayerAnswer();
+
+        //Проверить корректность ответа
+        if (!answerIsCorrect($playerAnswer, $number)) {
             lose($playerName);
-            exit();
         }
+        line('Correct!');
         $correctAnswer++;
     }
-    ifWin($playerName);
-}
 
-/**
- * Выводим правила игры
- */
-function reportGameRules(): void
-{
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-}
-
-/**
- * Задать вопрос
- */
-function askQuestion(int $num): bool
-{
-    line('Question : %u', $num);
-    $answer = prompt('Your answer');
-    $result = answerIsCorrect($answer, $num);
-    if ($result) {
-        line('Correct!');
-    }
-    return $result;
+    win($playerName);
 }
 
 /**
@@ -56,14 +44,15 @@ function lose(string $name): void
 {
     line('"yes" is wrong answer ;(.');
     line('Correct answer was "no". Let\'s try again, %s!', $name);
+    exit();
 }
 
 /**
- * Сообщение о победе
+ * Выводим правила игры
  */
-function ifWin(string $name): void
+function gameRules(): void
 {
-    line('Congratulations, %s!', $name);
+    line('Answer "yes" if the number is even, otherwise answer "no".');
 }
 
 /**
@@ -80,7 +69,7 @@ function generateNumber(): int
 function answerIsCorrect(string $answer, int $num): bool
 {
     return ($answer === 'yes' && isEven($num)) ||
-       ($answer === 'no' && !isEven($num));
+           ($answer === 'no' && !isEven($num));
 }
 
 /**

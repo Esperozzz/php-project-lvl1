@@ -22,8 +22,5 @@ if (file_exists($autoloadPath)) {
     exit();
 }
 
-$answer = getAnswer();
-var_dump($answer);
-
-//$playerName = greetingByName();
-//startEvenGame($playerName);
+$playerName = greetingByName();
+startEvenGame($playerName);
