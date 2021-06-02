@@ -19,7 +19,8 @@
     "autoload" : {
       "files" : [
             "src/Cli.php",
-            "src/Brain/Games/Even.php"
+            "src/Brain/Games/Even.php",
+            "src/Brain/Message.php"
         ]
     },
     "require-dev": {

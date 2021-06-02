@@ -12,6 +12,8 @@ use function Brain\Games\Even\answerIsCorrect;
 use function Brain\Games\Even\reportGameRules;
 use function Brain\Games\Cli\greetingByName;
 
+use function Brain\Message\getAnswer;
+
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath)) {
     require_once $autoloadPath;
@@ -20,5 +22,8 @@ if (file_exists($autoloadPath)) {
     exit();
 }
 
-$playerName = greetingByName();
-startEvenGame($playerName);
+$answer = getAnswer();
+var_dump($answer);
+
+//$playerName = greetingByName();
+//startEvenGame($playerName);
