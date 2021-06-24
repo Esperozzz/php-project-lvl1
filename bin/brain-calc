@@ -3,7 +3,6 @@
 
 error_reporting(-1);
 
-use function Brain\Games\Even\startEvenGame;
 use function Brain\Games\Cli\greetingByName;
 
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
@@ -13,6 +12,3 @@ if (file_exists($autoloadPath)) {
     echo "autoload file is not included";
     exit();
 }
-
-$playerName = greetingByName();
-startEvenGame($playerName);
