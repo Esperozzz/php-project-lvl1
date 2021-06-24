@@ -33,7 +33,7 @@ function win(string $name): void
 /**
  * Вывести в консоль сообщение о поражении
  */
-function lose(string $userName, string $coorect, string $notCorrect): void
+function lose(string $userName, string $correct, string $notCorrect): void
 {
     line("\"{$correct}\" is wrong answer ;(. Correct answer was \"{$notCorrect}\". ");
     line('Let\'s try again, %s!', $userName);
