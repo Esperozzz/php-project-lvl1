@@ -3,12 +3,11 @@
 namespace Brain\Games\Even;
 
 use function cli\line;
+use function Brain\Helper\generateNumber;
 use function Brain\Message\win;
 use function Brain\Message\getPlayerAnswer;
 use function Brain\Message\askAQuestion;
 
-define('RANDOM_MIN_NUM', 1);
-define('RANDOM_MAX_NUM', 100);
 define('ANSWERS_TO_WIN', 3);
 
 /**
@@ -53,14 +52,6 @@ function lose(string $name): void
 function gameRules(): void
 {
     line('Answer "yes" if the number is even, otherwise answer "no".');
-}
-
-/**
- * Генерирует случайное число
- */
-function generateNumber(): int
-{
-    return mt_rand(RANDOM_MIN_NUM, RANDOM_MAX_NUM);
 }
 
 /**
